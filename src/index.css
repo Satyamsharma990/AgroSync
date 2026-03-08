@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-green: #2E7D32;
+  --color-secondary-green: #66BB6A;
+  --color-accent-yellow: #F9A825;
+  --color-alert-red: #D32F2F;
+  --color-bg-light: #F5F7F6;
+  
+  --font-inter: 'Inter', sans-serif;
+  --font-open: 'Open Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-bg-light to-gray-200 text-gray-900 font-open min-h-screen;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-inter font-bold text-gray-900;
+  }
+}
+
+@layer utilities {
+  .app-container {
+    @apply flex flex-col min-h-screen w-full bg-transparent shadow-2xl relative overflow-x-hidden;
+  }
+  
+  .main-content {
+    @apply flex-1 p-4 pb-24 w-full max-w-7xl mx-auto;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .big-button {
+    @apply flex items-center justify-center gap-3 w-full p-5 text-lg font-bold rounded-2xl transition-all duration-300 active:scale-95 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)];
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-xl rounded-3xl;
+  }
+  
+  .premium-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-green to-[#1B5E20];
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
